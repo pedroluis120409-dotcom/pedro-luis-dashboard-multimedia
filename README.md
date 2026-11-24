@@ -4,6 +4,7 @@
 **Ano letivo:** 2026/2027  
 **Autor:** Pedro Luís  
 **Turma:** 12.º B  
+**Repositório:** [pedroluis120409-dotcom/PedroLuis-dashboard-multimedia](https://github.com/pedroluis120409-dotcom/PedroLuis-dashboard-multimedia)  
 **Aplicação Web:** [Inserir aqui o link do GitHub Pages ou Streamlit Cloud depois da publicação]
 
 ## 1. Visão geral do projeto
