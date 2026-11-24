@@ -5,7 +5,7 @@
 **Autor:** Pedro Luís  
 **Turma:** 12.º B  
 **Repositório:** [pedroluis120409-dotcom/PedroLuis-dashboard-multimedia](https://github.com/pedroluis120409-dotcom/PedroLuis-dashboard-multimedia)  
-**Aplicação Web:** [Inserir aqui o link do GitHub Pages ou Streamlit Cloud depois da publicação]
+**Aplicação Web:** https://pedroluis120409-dotcom.github.io/pedro-luis-dashboard-multimedia/
 
 ## 1. Visão geral do projeto
 
