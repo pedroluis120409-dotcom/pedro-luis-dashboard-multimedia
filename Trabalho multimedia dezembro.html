@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediaHub IA — Portal de Ferramentas Multimédia</title>
+    <style>
+        :root {
+            --bg-body: #f4f7fb;
+            --bg-surface: #ffffff;
+            --bg-subtle: #f8fafc;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --primary-soft: #eff6ff;
+            --accent: #0d9488;
+            --text-main: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --green: #16a34a;
+            --green-soft: #dcfce7;
+            --yellow: #ca8a04;
+            --red: #dc2626;
+            --red-soft: #fee2e2;
+            --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+            --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.07), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* =========================================
+           1. BARRA DE NAVEGAÇÃO (NAVBAR)
+           ========================================= */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0 24px;
+        }
+
+        .nav-container {
+            max-width: 1320px;
+            margin: 0 auto;
+            height: 64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-badge {
+            background: var(--primary-soft);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            border: 1px solid #bfdbfe;
+        }
+
+        /* =========================================
+           2. SECÇÃO HERO
+           ========================================= */
+        .hero {
+            background: linear-gradient(180deg, #ffffff 0%, rgba(244, 247, 251, 0) 100%);
+            padding: 38px 24px 24px 24px;
+            text-align: center;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+        }
+
+        .hero-inner {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .hero-pill {
+            display: inline-block;
+            background: var(--primary-soft);
+            color: var(--primary);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 999px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.1rem;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.5;
+        }
+
+        /* =========================================
+           3. CONTENTOR PRINCIPAL (DASHBOARD)
+           ========================================= */
+        .main-wrapper {
+            flex: 1;
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 26px 24px 50px 24px;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px -5px rgba(15, 23, 42, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 14px;
+            margin-bottom: 16px;
+        }
+
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .tag-ia {
+            background: var(--primary-soft);
+            color: var(--primary);
+            border: 1px solid #bfdbfe;
+            font-size: 0.72rem;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            line-height: 1.4;
+        }
+
+        /* Botões */
+        .action-btn {
+            background: var(--primary);
+            color: #ffffff;
+            border: none;
+            padding: 11px 16px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: var(--shadow-sm);
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .action-btn:hover:not(:disabled) { background: var(--primary-hover); }
+        .action-btn:active:not(:disabled) { transform: scale(0.98); }
+        .action-btn:disabled { background: #94a3b8; cursor: not-allowed; }
+
+        .secondary-btn {
+            background: var(--bg-subtle);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            margin-top: 8px;
+            box-shadow: none;
+        }
+
+        .secondary-btn:hover {
+            background: #f1f5f9;
+            color: var(--text-main);
+            border-color: #cbd5e1;
+        }
+
+        /* =========================================
+           WIDGET 1: QUIZ MULTI-TEMA & PONTUAÇÃO
+           ========================================= */
+        .score-bar {
+            display: flex;
+            justify-content: space-between;
+            background: var(--bg-subtle);
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            margin-bottom: 14px;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+
+        .score-item strong {
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .quiz-box {
+            background: var(--bg-subtle);
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin-bottom: 12px;
+        }
+
+        .cat-badge {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #3730a3;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            color: var(--text-main);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .opt-btn {
+            background: var(--bg-surface);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 9px 8px;
+            border-radius: 8px;
+            font-size: 0.83rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s;
+            text-align: center;
+        }
+
+        .opt-btn:hover:not(:disabled) {
+            border-color: var(--primary);
+            background: var(--primary-soft);
+            color: var(--primary);
+        }
+
+        .opt-btn.correct {
+            background: var(--green-soft);
+            border-color: var(--green);
+            color: #14532d;
+            font-weight: 700;
+        }
+
+        .opt-btn.wrong {
+            background: var(--red-soft);
+            border-color: var(--red);
+            color: #7f1d1d;
+        }
+
+        .feedback-panel {
+            margin-top: auto;
+            margin-bottom: 10px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.83rem;
+            line-height: 1.4;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
+            color: var(--text-secondary);
+        }
+
+        /* =========================================
+           WIDGET 2: GERADOR DE PASSWORDS AVANÇADO
+           ========================================= */
+        .mode-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 14px;
+            background: var(--bg-subtle);
+            padding: 4px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .mode-btn {
+            flex: 1;
+            padding: 7px;
+            background: transparent;
+            color: var(--text-secondary);
+            border: none;
+            border-radius: 7px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .mode-btn.active {
+            background: var(--bg-surface);
+            color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .control-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        input[type="range"] {
+            width: 100%;
+            accent-color: var(--primary);
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .checks-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .check-label {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--bg-subtle);
+            padding: 8px 10px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border: 1px solid var(--border);
+        }
+
+        .check-label:hover {
+            border-color: #cbd5e1;
+            background: #f1f5f9;
+        }
+
+        .check-label input {
+            accent-color: var(--primary);
+            width: 15px;
+            height: 15px;
+        }
+
+        .pass-box-wrapper {
+            position: relative;
+            margin-top: 12px;
+        }
+
+        .pass-output {
+            font-family: 'Consolas', monospace;
+            font-size: 1.05rem;
+            font-weight: 700;
+            background: var(--primary-soft);
+            padding: 12px 58px 12px 12px;
+            border-radius: 10px;
+            text-align: center;
+            letter-spacing: 1px;
+            border: 1px dashed #93c5fd;
+            color: var(--primary-hover);
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--bg-surface);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 5px 9px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .copy-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .bar-bg {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 12px 0 6px 0;
+        }
+
+        .bar-fill {
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s, background-color 0.3s;
+        }
+
+        .crack-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        /* =========================================
+           WIDGET 3: SORTEADOR DE EQUIPAS POR CURSOS
+           ========================================= */
+        label.field-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        textarea, select {
+            width: 100%;
+            background: var(--bg-subtle);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 9px 10px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: var(--bg-surface);
+        }
+
+        .row-selects {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 8px;
+        }
+
+        .teams-container {
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 270px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .team-card {
+            background: var(--bg-subtle);
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
+        }
+
+        .team-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .team-name {
+            font-weight: 700;
+            color: var(--primary-hover);
+            font-size: 0.92rem;
+        }
+
+        .course-pill {
+            background: var(--bg-surface);
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+        }
+
+        .team-motto {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin: 4px 0 8px 0;
+        }
+
+        .member-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.82rem;
+            padding: 5px 0;
+            border-top: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .role-tag {
+            background: var(--primary-soft);
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.72rem;
+            padding: 2px 8px;
+            border-radius: 5px;
+        }
+
+        /* =========================================
+           4. RODAPÉ (FOOTER)
+           ========================================= */
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 20px 24px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        footer strong {
+            color: var(--text-main);
+        }
+
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGAÇÃO SUPERIOR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand">
+                <span class="brand-icon">⚡</span>
+                <span>MediaHub IA</span>
+            </a>
+            <div class="nav-links">
+                <a href="#widget-quiz">Quiz Multi-Tema</a>
+                <a href="#widget-pass">Segurança & Passwords</a>
+                <a href="#widget-equipas">Equipas por Curso</a>
+                <span class="nav-badge">Projeto Web + IA</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECÇÃO HERO DE APRESENTAÇÃO -->
+    <section class="hero">
+        <div class="hero-inner">
+            <span class="hero-pill">Dashboard Interativo Multimédia</span>
+            <h1>Ferramentas Inteligentes para Projetos Escolares</h1>
+            <p>Plataforma web integrada com desafios de conhecimento, gerador criptográfico de palavras-passe e organização automática de equipas por área de curso.</p>
+        </div>
+    </section>
+
+    <!-- ÁREA PRINCIPAL DOS 3 WIDGETS -->
+    <main class="main-wrapper">
+        <div class="dashboard">
+
+            <!-- WIDGET 1: QUIZ MULTI-TEMA & PONTUAÇÃO -->
+            <article class="card" id="widget-quiz">
+                <div class="card-header">
+                    <h2>1. Quiz Multi-Tema & IA</h2>
+                    <span class="tag-ia">Ronda de 10</span>
+                </div>
+
+                <div class="score-bar">
+                    <div class="score-item">Pontos: <strong id="ptsVal">0</strong></div>
+                    <div class="score-item">Acertos: <strong id="hitsVal">0/10</strong></div>
+                    <div class="score-item">Série: <strong id="streakVal">0 🔥</strong></div>
+                </div>
+
+                <div class="quiz-box">
+                    <span class="cat-badge" id="qCategory">Categoria</span>
+                    <div class="question-text" id="qText">A carregar pergunta...</div>
+                    <div class="options-grid" id="qOptions"></div>
+                </div>
+
+                <div class="feedback-panel" id="qFeedback">
+                    💡 <strong>Assistente IA:</strong> Escolhe uma opção para começar a pontuar!
+                </div>
+
+                <button class="action-btn" id="nextBtn" onclick="proximaPergunta()" disabled>Próxima Pergunta ➡️</button>
+                <button class="action-btn secondary-btn" onclick="reiniciarQuiz()">🔄 Reiniciar Pontuação</button>
+            </article>
+
+            <!-- WIDGET 2: GERADOR DE PASSWORDS AVANÇADO -->
+            <article class="card" id="widget-pass">
+                <div class="card-header">
+                    <h2>2. Gerador Password Forte</h2>
+                    <span class="tag-ia">Segurança IA</span>
+                </div>
+
+                <div class="mode-tabs">
+                    <button class="mode-btn active" id="tabRandom" onclick="setPassMode('random')">🎲 Aleatória</button>
+                    <button class="mode-btn" id="tabPhrase" onclick="setPassMode('phrase')">🧠 Frase-Passe</button>
+                </div>
+
+                <div id="randomControls">
+                    <div class="control-row">
+                        <span>Comprimento da Senha:</span>
+                        <strong style="color: var(--primary);"><span id="lenVal">14</span> caracteres</strong>
+                    </div>
+                    <input type="range" id="passLen" min="6" max="24" value="14" oninput="document.getElementById('lenVal').innerText = this.value; gerarPassword();">
+
+                    <div class="checks-grid">
+                        <label class="check-label">
+                            <input type="checkbox" id="useUpper" checked onchange="gerarPassword()">
+                            <span>Maiúsculas (A-Z)</span>
+                        </label>
+                        <label class="check-label">
+                            <input type="checkbox" id="useNumbers" checked onchange="gerarPassword()">
+                            <span>Números (0-9)</span>
+                        </label>
+                        <label class="check-label">
+                            <input type="checkbox" id="useSymbols" checked onchange="gerarPassword()">
+                            <span>Símbolos (!@#$%)</span>
+                        </label>
+                        <label class="check-label">
+                            <input type="checkbox" id="noAmbiguous" onchange="gerarPassword()">
+                            <span>Sem ambíguos (0/O)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="phraseControls" style="display: none; margin-bottom: 12px;">
+                    <p class="subtitle" style="margin-bottom: 0;">Gera combinações fáceis de memorizar juntando palavras, números e símbolos (ex: <em>Tigre#Azul42!</em>).</p>
+                </div>
+
+                <button class="action-btn" onclick="gerarPassword()">🔐 Gerar Nova Palavra-Passe</button>
+
+                <div class="pass-box-wrapper">
+                    <div class="pass-output" id="passDisplay">---</div>
+                    <button class="copy-btn" id="copyBtn" onclick="copiarPassword()">Copiar</button>
+                </div>
+
+                <div class="bar-bg"><div class="bar-fill" id="strengthBar"></div></div>
+                <div class="crack-info">
+                    <span id="strengthLabel">Força: ---</span>
+                    <span id="crackTime">Quebra: ---</span>
+                </div>
+                <div id="passTip" style="font-size: 0.81rem; color: var(--text-secondary); line-height: 1.4; margin-top: auto;"></div>
+            </article>
+
+            <!-- WIDGET 3: SORTEADOR DE EQUIPAS POR CURSOS -->
+            <article class="card" id="widget-equipas">
+                <div class="card-header">
+                    <h2>3. Equipas por Cursos</h2>
+                    <span class="tag-ia">Perfis & Cargos IA</span>
+                </div>
+
+                <label class="field-label" for="namesList">Alunos / Participantes (separados por vírgula):</label>
+                <textarea id="namesList" rows="2" placeholder="Ex: Ana, João, Beatriz, Carlos, Sofia, Miguel">Ana, João, Beatriz, Carlos, Sofia, Miguel, Tiago, Inês</textarea>
+
+                <div class="row-selects">
+                    <div>
+                        <label class="field-label" for="courseSelect">Área do Curso:</label>
+                        <select id="courseSelect">
+                            <option value="misto">🎓 Turma Mista (Vários Cursos)</option>
+                            <option value="multimedia">🎬 Multimédia</option>
+                            <option value="programacao">💻 Programação / Informática</option>
+                            <option value="design">🎨 Design Gráfico</option>
+                            <option value="audiovisuais">🎧 Audiovisuais & Som</option>
+                            <option value="marketing">📱 Marketing Digital</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="field-label" for="teamCount">Equipas:</label>
+                        <select id="teamCount">
+                            <option value="2">2 Equipas</option>
+                            <option value="3">3 Equipas</option>
+                            <option value="4">4 Equipas</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="action-btn" onclick="sortearEquipas()">🎲 Sortear Equipas e Cargos</button>
+
+                <div class="teams-container" id="teamsOutput"></div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ INSTITUCIONAL -->
+    <footer>
+        Desenvolvido para a disciplina de <strong>Multimédia & Programação</strong> • Estrutura Web HTML5/CSS3/JS com apoio de IA
+    </footer>
+
+    <!-- ==========================================
+         JAVASCRIPT NO FINAL (ALEATORIEDADE E LÓGICA)
+         ========================================== -->
+    <script>
+        /* 1. QUIZ MULTI-TEMA & PONTUAÇÃO */
+        const bancoPerguntas = [
+            { cat: "🌍 Geografia", q: "Qual é o maior oceano do planeta Terra?", opts: ["Oceano Atlântico", "Oceano Índico", "Oceano Pacífico", "Oceano Ártico"], a: "Oceano Pacífico", dica: "Cobre mais de um terço da superfície terrestre." },
+            { cat: "🚀 Ciência & Espaço", q: "Qual é o planeta mais próximo do Sol?", opts: ["Vénus", "Mercúrio", "Marte", "Terra"], a: "Mercúrio", dica: "É o primeiro planeta do Sistema Solar e o mais pequeno." },
+            { cat: "🎬 Cinema & Cultura", q: "Quem realizou o filme 'Oppenheimer' (2023)?", opts: ["Steven Spielberg", "Christopher Nolan", "Quentin Tarantino", "Denis Villeneuve"], a: "Christopher Nolan", dica: "O mesmo realizador de 'Inception' e 'Interstellar'." },
+            { cat: "💻 Tecnologia", q: "O que significa a sigla 'CPU' num computador?", opts: ["Central Processing Unit", "Computer Personal Unit", "Control Power Utility", "Core Program User"], a: "Central Processing Unit", dica: "É o 'cérebro' que processa as instruções." },
+            { cat: "🏛️ História", q: "Em que ano ocorreu a Revolução dos Cravos em Portugal?", opts: ["1968", "1974", "1976", "1986"], a: "1974", dica: "Aconteceu a 25 de abril." },
+            { cat: "🎨 Multimédia", q: "Qual formato de imagem suporta fundo transparente?", opts: ["JPEG", "PNG", "MP3", "BMP"], a: "PNG", dica: "Possui canal Alfa para transparências." },
+            { cat: "🧬 Ciência", q: "Qual é o símbolo químico do Ouro na Tabela Periódica?", opts: ["Ag", "Fe", "Au", "Or"], a: "Au", dica: "Vem do latim 'Aurum'." },
+            { cat: "⚽ Desporto", q: "Quantos jogadores tem uma equipa de basquetebol em campo?", opts: ["5", "6", "7", "11"], a: "5", dica: "São 5 contra 5 dentro das quatro linhas." },
+            { cat: "🌍 Geografia", q: "Qual é a capital da Austrália?", opts: ["Sydney", "Melbourne", "Camberra", "Perth"], a: "Camberra", dica: "Não é a cidade mais populosa, foi construída de propósito para ser capital." },
+            { cat: "🎵 Música", q: "Quantas cordas tem uma guitarra clássica tradicional?", opts: ["4", "5", "6", "8"], a: "6", dica: "Mi, Lá, Ré, Sol, Si, Mi." },
+            { cat: "💻 Web & Código", q: "Que linguagem define o estilo e as cores de uma página Web?", opts: ["HTML5", "CSS3", "Python", "SQL"], a: "CSS3", dica: "Significa Cascading Style Sheets." },
+            { cat: "🚀 Espaço", q: "Qual foi o primeiro ser humano a pisar a Lua?", opts: ["Yuri Gagarin", "Buzz Aldrin", "Neil Armstrong", "Michael Collins"], a: "Neil Armstrong", dica: "Comandante da missão Apollo 11 em 1969." },
+            { cat: "🎨 Design", q: "Qual modelo de cor é utilizado para impressão em papel?", opts: ["RGB", "CMYK", "HEX", "HSL"], a: "CMYK", dica: "Ciano, Magenta, Amarelo e Preto (Key)." },
+            { cat: "🏛️ História", q: "Qual civilização antiga construiu as pirâmides de Gizé?", opts: ["Romana", "Grega", "Egípcia", "Maias"], a: "Egípcia", dica: "Localizam-se perto do Cairo, no Egito." },
+            { cat: "🎥 Vídeo", q: "Qual resolução corresponde ao padrão Full HD?", opts: ["1280 x 720", "1920 x 1080", "2560 x 1440", "3840 x 2160"], a: "1920 x 1080", dica: "Equivale a 1080p na proporção 16:9." }
+        ];
+
+        let filaPerguntas = [];
+        let perguntaAtual = null;
+        let pontos = 0;
+        let acertos = 0;
+        let respondidas = 0;
+        let serie = 0;
+        const maxRonda = 10;
+
+        function reiniciarQuiz() {
+            pontos = 0;
+            acertos = 0;
+            respondidas = 0;
+            serie = 0;
+            filaPerguntas = [...bancoPerguntas].sort(() => Math.random() - 0.5);
+            atualizarPlacar();
+            proximaPergunta();
+        }
+
+        function atualizarPlacar() {
+            document.getElementById("ptsVal").innerText = pontos;
+            document.getElementById("hitsVal").innerText = `${acertos}/${maxRonda}`;
+            document.getElementById("streakVal").innerText = `${serie} 🔥`;
+        }
+
+        function proximaPergunta() {
+            const nextBtn = document.getElementById("nextBtn");
+            const feedback = document.getElementById("qFeedback");
+
+            if (respondidas >= maxRonda) {
+                let avaliacaoIA = pontos >= 80
+                    ? "🏆 <strong>Nível Mestre!</strong> Excelente cultura geral e domínio técnico."
+                    : pontos >= 50
+                    ? "👏 <strong>Bom Desempenho!</strong> Tens uma base sólida em várias áreas."
+                    : "📚 <strong>Continua a praticar!</strong> Clica em Reiniciar para superar a tua marca.";
+
+                document.getElementById("qCategory").innerText = "Fim da Ronda";
+                document.getElementById("qText").innerText = `Concluíste as ${maxRonda} perguntas com ${pontos} pontos!`;
+                document.getElementById("qOptions").innerHTML = "";
+                feedback.style.borderLeftColor = "#16a34a";
+                feedback.innerHTML = avaliacaoIA;
+                nextBtn.disabled = true;
+                return;
+            }
+
+            if (filaPerguntas.length === 0) {
+                filaPerguntas = [...bancoPerguntas].sort(() => Math.random() - 0.5);
+            }
+
+            perguntaAtual = filaPerguntas.pop();
+            nextBtn.disabled = true;
+            feedback.style.borderLeftColor = "#2563eb";
+            feedback.innerHTML = `💡 <strong>Pergunta ${respondidas + 1} de ${maxRonda}:</strong> Seleciona a opção correta.`;
+
+            document.getElementById("qCategory").innerText = perguntaAtual.cat;
+            document.getElementById("qText").innerText = perguntaAtual.q;
+
+            const grid = document.getElementById("qOptions");
+            grid.innerHTML = "";
+
+            let opcoesBaralhadas = [...perguntaAtual.opts].sort(() => Math.random() - 0.5);
+            opcoesBaralhadas.forEach(op => {
+                const btn = document.createElement("button");
+                btn.className = "opt-btn";
+                btn.innerText = op;
+                btn.onclick = () => validarResposta(btn, op);
+                grid.appendChild(btn);
+            });
+        }
+
+        function validarResposta(btnClicado, escolha) {
+            const botoes = document.querySelectorAll(".opt-btn");
+            botoes.forEach(b => b.disabled = true);
+
+            respondidas++;
+            const feedback = document.getElementById("qFeedback");
+
+            if (escolha === perguntaAtual.a) {
+                btnClicado.classList.add("correct");
+                acertos++;
+                serie++;
+                const bonus = serie >= 2 ? 5 : 0;
+                pontos += (10 + bonus);
+                feedback.style.borderLeftColor = "#16a34a";
+                feedback.innerHTML = `✅ <strong>Correto!</strong> +${10 + bonus} pontos ${bonus > 0 ? "(Inclui +5 bónus de série!)" : ""}`;
+            } else {
+                btnClicado.classList.add("wrong");
+                serie = 0;
+                botoes.forEach(b => {
+                    if (b.innerText === perguntaAtual.a) b.classList.add("correct");
+                });
+                feedback.style.borderLeftColor = "#dc2626";
+                feedback.innerHTML = `❌ <strong>Errado!</strong> A certa era <strong>${perguntaAtual.a}</strong>.<br>💡 <em>Dica IA:</em> ${perguntaAtual.dica}`;
+            }
+
+            atualizarPlacar();
+            document.getElementById("nextBtn").disabled = false;
+        }
+
+        /* 2. GERADOR DE PASSWORDS AVANÇADO */
+        let passMode = "random";
+
+        const palavrasBase = ["Tigre", "Cometa", "Pixel", "Fenix", "Oceano", "Codigo", "Saturno", "Raio", "Falcao", "Prisma"];
+        const adjetivosBase = ["Azul", "Veloz", "Solar", "Epico", "Digital", "Forte", "Cosmico", "Nobre"];
+        const simbolosLista = ["!", "@", "#", "$", "%", "&", "*"];
+
+        const dicasSegurancaIA = [
+            "Usa um gestor de palavras-passe para não teres de decorar dezenas de códigos diferentes.",
+            "Ativa sempre a autenticação de dois fatores (2FA) nas tuas contas principais.",
+            "Nunca reutilizes a mesma palavra-passe no email e nas redes sociais.",
+            "As frases-passe combinam alta segurança matemática com facilidade de memorização humana."
+        ];
+
+        function setPassMode(mode) {
+            passMode = mode;
+            document.getElementById("tabRandom").classList.toggle("active", mode === "random");
+            document.getElementById("tabPhrase").classList.toggle("active", mode === "phrase");
+            document.getElementById("randomControls").style.display = mode === "random" ? "block" : "none";
+            document.getElementById("phraseControls").style.display = mode === "phrase" ? "block" : "none";
+            gerarPassword();
+        }
+
+        function gerarPassword() {
+            let password = "";
+            let score = 0;
+
+            if (passMode === "phrase") {
+                const p1 = palavrasBase[Math.floor(Math.random() * palavrasBase.length)];
+                const p2 = adjetivosBase[Math.floor(Math.random() * adjetivosBase.length)];
+                const s1 = simbolosLista[Math.floor(Math.random() * simbolosLista.length)];
+                const num = Math.floor(10 + Math.random() * 89);
+                password = `${p1}${s1}${p2}${num}!`;
+                score = 3;
+            } else {
+                const len = parseInt(document.getElementById("passLen").value);
+                const upper = document.getElementById("useUpper").checked;
+                const nums = document.getElementById("useNumbers").checked;
+                const syms = document.getElementById("useSymbols").checked;
+                const noAmb = document.getElementById("noAmbiguous").checked;
+
+                let charset = "abcdefghijklmnopqrstuvwxyz";
+                if (upper) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                if (nums) charset += "0123456789";
+                if (syms) charset += "!@#$%&*?";
+
+                if (noAmb) {
+                    charset = charset.replace(/[0O1lI]/g, "");
+                }
+
+                for (let i = 0; i < len; i++) {
+                    password += charset.charAt(Math.floor(Math.random() * charset.length));
+                }
+
+                if (len >= 12 && (upper || nums) && syms) score = 3;
+                else if (len >= 8 && (upper || nums || syms)) score = 2;
+                else score = 1;
+            }
+
+            document.getElementById("passDisplay").innerText = password;
+
+            const bar = document.getElementById("strengthBar");
+            const sLabel = document.getElementById("strengthLabel");
+            const cTime = document.getElementById("crackTime");
+
+            if (score === 1) {
+                bar.style.width = "30%";
+                bar.style.backgroundColor = "#dc2626";
+                sLabel.innerText = "Força: Fraca";
+                cTime.innerText = "Quebra: Segundos";
+            } else if (score === 2) {
+                bar.style.width = "65%";
+                bar.style.backgroundColor = "#ca8a04";
+                sLabel.innerText = "Força: Média";
+                cTime.innerText = "Quebra: Alguns meses";
+            } else {
+                bar.style.width = "100%";
+                bar.style.backgroundColor = "#16a34a";
+                sLabel.innerText = "Força: Invencível";
+                cTime.innerText = "Quebra: +500 anos";
+            }
+
+            const dica = dicasSegurancaIA[Math.floor(Math.random() * dicasSegurancaIA.length)];
+            document.getElementById("passTip").innerHTML = `🧠 <strong>Nota IA:</strong> ${dica}`;
+        }
+
+        function copiarPassword() {
+            const texto = document.getElementById("passDisplay").innerText;
+            navigator.clipboard.writeText(texto);
+            const btn = document.getElementById("copyBtn");
+            btn.innerText = "Copiado!";
+            setTimeout(() => btn.innerText = "Copiar", 1500);
+        }
+
+        /* 3. SORTEADOR DE EQUIPAS POR CURSOS */
+        const dadosCursos = {
+            multimedia: {
+                tag: "Curso: Multimédia",
+                equipas: [
+                    { nome: "🎬 Estúdio Pixel Criativo", lema: "Imagem, som e interatividade em perfeita sintonia." },
+                    { nome: "⚡ Produtora FrameRate", lema: "Cada segundo conta uma história visual." },
+                    { nome: "🌟 Coletivo 1080p", lema: "Criatividade sem limites em qualquer ecrã." },
+                    { nome: "🎥 Núcleo Audiovisual", lema: "Do guião à pós-produção com rigor técnico." }
+                ],
+                cargos: ["Realização & Guião", "Edição de Vídeo", "Design & Grafismo", "Captação & Som"]
+            },
+            programacao: {
+                tag: "Curso: Programação",
+                equipas: [
+                    { nome: "💻 Arquitetos do Código", lema: "Algoritmos limpos, sistemas rápidos e zero bugs." },
+                    { nome: "🚀 DevSquad Full-Stack", lema: "Transformamos café e lógica em software real." },
+                    { nome: "🛡️ Guardiões da Rede", lema: "Infraestrutura sólida e código escalável." },
+                    { nome: "⚙️ Núcleo Binário", lema: "Eficiência máxima em cada linha programada." }
+                ],
+                cargos: ["Líder Técnico", "Back-End & Lógica", "Front-End & UI", "Testes & GitHub"]
+            },
+            design: {
+                tag: "Curso: Design Gráfico",
+                equipas: [
+                    { nome: "🎨 Mestres do Vetor", lema: "Tipografia, cor e equilíbrio em cada detalhe." },
+                    { nome: "✨ Estúdio Paleta", lema: "Comunicação visual que marca a diferença." },
+                    { nome: "🖌️ Coletivo CMYK", lema: "Do esboço em papel à arte final digital." },
+                    { nome: "📐 Forma & Conceito", lema: "Design funcional pensado para as pessoas." }
+                ],
+                cargos: ["Direção de Arte", "Identidade Visual", "Tipografia & Layout", "Arte Final"]
+            },
+            audiovisuais: {
+                tag: "Curso: Audiovisuais",
+                equipas: [
+                    { nome: "🎧 Ondas Sonoras", lema: "A frequência exata entre emoção e técnica." },
+                    { nome: "🎙️ Estúdio MasterMix", lema: "Captação cristalina e mistura profissional." },
+                    { nome: "📹 Câmara & Luz", lema: "Iluminação cinematográfica em cada plano." },
+                    { nome: "🔊 Acústica Digital", lema: "O som dá vida à imagem." }
+                ],
+                cargos: ["Operador de Câmara", "Técnico de Som", "Iluminação", "Mistura & Montagem"]
+            },
+            marketing: {
+                tag: "Curso: Marketing Digital",
+                equipas: [
+                    { nome: "📱 Agência ViralLab", lema: "Estratégia orientada a dados e alcance real." },
+                    { nome: "📈 Impulso Digital", lema: "Conectamos marcas às pessoas certas." },
+                    { nome: "💡 Criativos de Conteúdo", lema: "Copywriting persuasivo e campanhas memoráveis." },
+                    { nome: "🎯 Foco & Conversão", lema: "Ideias criativas com resultados mensuráveis." }
+                ],
+                cargos: ["Gestor de Campanha", "Copywriting", "Social Media", "Análise de Dados"]
+            },
+            misto: {
+                tag: "Equipa Interdisciplinar",
+                equipas: [
+                    { nome: "🌐 Hub Inovação", lema: "Unimos código, design e multimédia num só projeto." },
+                    { nome: "🔥 Fénix Tecnológica", lema: "Talentos diferentes a trabalhar para o mesmo objetivo." },
+                    { nome: "⚡ Esquadrão Criativo", lema: "Da ideia inicial à apresentação final." },
+                    { nome: "🚀 NexGen Lab", lema: "O futuro constrói-se em equipa." }
+                ],
+                cargos: ["Gestão de Projeto", "Desenvolvimento Web", "Design & Multimédia", "Apresentação & Pitch"]
+            }
+        };
+
+        function sortearEquipas() {
+            const raw = document.getElementById("namesList").value;
+            const cursoKey = document.getElementById("courseSelect").value;
+            const numEquipas = parseInt(document.getElementById("teamCount").value);
+            const output = document.getElementById("teamsOutput");
+
+            let nomes = raw.split(",").map(n => n.trim()).filter(n => n !== "");
+
+            if (nomes.length < numEquipas) {
+                output.innerHTML = `<div style="color:#dc2626; font-size:0.84rem;">⚠️ Insere pelo menos ${numEquipas} nomes separados por vírgula.</div>`;
+                return;
+            }
+
+            // Baralhar alunos (Fisher-Yates)
+            for (let i = nomes.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [nomes[i], nomes[j]] = [nomes[j], nomes[i]];
+            }
+
+            let grupos = Array.from({ length: numEquipas }, () => []);
+            nomes.forEach((nome, idx) => {
+                grupos[idx % numEquipas].push(nome);
+            });
+
+            const cursoInfo = dadosCursos[cursoKey];
+            let perfisBaralhados = [...cursoInfo.equipas].sort(() => Math.random() - 0.5);
+
+            output.innerHTML = "";
+
+            grupos.forEach((membros, idx) => {
+                const perfil = perfisBaralhados[idx % perfisBaralhados.length];
+                let membrosHTML = membros.map((aluno, mIdx) => {
+                    const cargo = cursoInfo.cargos[mIdx % cursoInfo.cargos.length];
+                    return `<div class="member-line"><span>${aluno}</span><span class="role-tag">${cargo}</span></div>`;
+                }).join("");
+
+                output.innerHTML += `
+                    <div class="team-card">
+                        <div class="team-top">
+                            <span class="team-name">${perfil.nome}</span>
+                            <span class="course-pill">${cursoInfo.tag}</span>
+                        </div>
+                        <div class="team-motto">"${perfil.lema}"</div>
+                        <div>${membrosHTML}</div>
+                    </div>
+                `;
+            });
+        }
+
+        // Inicializar os 3 widgets ao carregar
+        window.onload = () => {
+            reiniciarQuiz();
+            gerarPassword();
+            sortearEquipas();
+        };
+    </script>
+</body>
+</html>
