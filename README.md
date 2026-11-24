@@ -51,10 +51,10 @@ Um pedido de design adequado a registar seria:
 
 ## 4. Estrutura de ficheiros do repositório
 
-- [`Trabalho multimedia dezembro.html`](<./Trabalho multimedia dezembro.html>) — página principal; contém HTML, CSS e JavaScript.
+- [`index.html`](./index.html) — página principal; contém HTML, CSS e JavaScript.
 - `README.md` — relatório e descrição do projeto.
 
-Não existem, neste repositório, ficheiros separados `index.html`, `app.py` ou `style.css`, nem uma pasta de assets. Para experimentar a aplicação localmente, abre o ficheiro HTML num navegador.
+Não existem, neste repositório, ficheiros separados `app.py` ou `style.css`, nem uma pasta de assets. Para experimentar a aplicação localmente, abre o ficheiro `index.html` num navegador.
 
 ## 5. Reflexão crítica e aprendizagem
 
