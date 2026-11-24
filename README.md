@@ -11,7 +11,7 @@
 
 O MediaHub IA reúne, numa única página Web, ferramentas interativas para apoiar atividades escolares: um quiz de conhecimentos, um gerador de palavras-passe e um organizador de equipas. O objetivo é disponibilizar estas funcionalidades num dashboard simples e visualmente coerente.
 
-**Proposta escolhida:** [Indicar Proposta 1 ou Proposta 2]
+**Proposta escolhida:** Proposta 1
 
 ## 2. Estrutura do código e funcionalidades
 
