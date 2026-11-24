@@ -15,7 +15,7 @@ O MediaHub IA reúne, numa única página Web, ferramentas interativas para apoi
 
 ## 2. Estrutura do código e funcionalidades
 
-A aplicação foi construída num único ficheiro HTML. O CSS, responsável pelo aspeto visual e pela adaptação do layout, e o JavaScript, responsável pela interação, estão incluídos nesse ficheiro; não existem ficheiros `app.py` ou `style.css` separados.
+A aplicação foi construída num único ficheiro HTML. O CSS, responsável pelo aspeto visual e pela adaptação do layout, responsável pela interação, estão incluídos nesse ficheiro; não existem ficheiros `app.py` ou `style.css` separados.
 
 As funcionalidades integradas são:
 
@@ -33,7 +33,7 @@ Os exemplos abaixo descrevem pedidos adequados às tarefas deste projeto. São r
 
 ### 3.1 Prompt para conversão Web/HTML
 
-> Converte a proposta do meu dashboard escolar numa página HTML5 funcional, com CSS e JavaScript integrados. Organiza a página em secções claras e garante que os controlos são interativos e que o layout se adapta a ecrãs diferentes.
+> Converte a proposta do meu dashboard escolar numa página HTML5 funcional, com CSS integrados. Organiza a página em secções claras e garante que os controlos são interativos e que o layout se adapta a ecrãs diferentes.
 
 ### 3.2 Prompt para ampliação de funcionalidades
 
@@ -51,7 +51,7 @@ Um pedido de design adequado a registar seria:
 
 ## 4. Estrutura de ficheiros do repositório
 
-- [`index.html`](./index.html) — página principal; contém HTML, CSS e JavaScript.
+- [`index.html`](./index.html) — página principal; contém HTML, CSS.
 - `README.md` — relatório e descrição do projeto.
 
 Não existem, neste repositório, ficheiros separados `app.py` ou `style.css`, nem uma pasta de assets. Para experimentar a aplicação localmente, abre o ficheiro `index.html` num navegador.
