@@ -33,7 +33,7 @@ Os exemplos abaixo descrevem pedidos adequados às tarefas deste projeto. São r
 
 ### 3.1 Prompt para conversão Web/HTML
 
- Converte a proposta do meu dashboard escolar numa página HTML5 funcional, com CSS integrados. Organiza a página em secções claras e garante que os controlos são interativos e que o layout se adapta a ecrãs diferentes.
+ Converte a proposta do meu dashboard escolar numa página HTML5 funcional, com CSS integrados. Organiza a página em secções acrescentado uma de palavras passes fortes e um de gerador de equipas usando em base as aprendizagens que te mandei
 
 ### 3.2 Prompt para ampliação de funcionalidades
 
