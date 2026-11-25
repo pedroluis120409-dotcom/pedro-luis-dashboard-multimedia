@@ -57,4 +57,4 @@ Não existem, neste repositório, ficheiros separados `app.py` ou `style.css`, n
 
 ## 5. Reflexão crítica e aprendizagem
 
-O que correu melhor foi conseguir reunir ferramentas diferentes num só dashboard e reutilizar ideias de atividades e recursos que já conhecia. A maior dificuldade foi integrar o quiz, o gerador de palavras-passe e a distribuição de equipas sem tornar a página confusa. A Inteligência Artificial pode ajudar a transformar ideias em código, sugerir melhorias de organização e explicar erros; ainda assim, é importante testar o resultado, confirmar que funciona e adaptar as sugestões ao projeto.
+Em suma, este trabalho ajudou-me a entender como é possível transformar ideias em código, melhorar a organização do projeto e corrigir erros — ainda que seja sempre importante testar os resultados, confirmar que tudo funciona e adaptar cada solução às nossas necessidades. O que correu melhor foi conseguir reunir ferramentas diferentes num só dashboard, reutilizando ideias de atividades e recursos que já conhecia. Já a maior dificuldade foi integrar o quiz, o gerador de palavras-passe e a distribuição de equipas num único espaço sem tornar a página confusa."
