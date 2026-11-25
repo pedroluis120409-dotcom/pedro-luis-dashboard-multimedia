@@ -47,7 +47,7 @@ A integração de três ferramentas diferentes numa só página exigiu organizar
 
 Um pedido de design adequado a registar seria:
 
-> Organiza o dashboard em cartões separados, melhora a leitura com espaçamento consistente e bom contraste, usa uma paleta azul e verde, e torna os botões e controlos fáceis de identificar. Mantém o layout adaptável a telemóveis.
+ Organiza o dashboard em cartões separados, melhora a leitura com espaçamento consistente e bom contraste, usa uma paleta azul e verde, e torna os botões e controlos fáceis de identificar. Mantém o layout adaptável a telemóveis.
 
 ## 4. Estrutura de ficheiros do repositório
  [`index.html`](./index.html) — página principal; contém HTML, CSS.
