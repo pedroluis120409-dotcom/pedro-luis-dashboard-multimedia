@@ -19,9 +19,9 @@ A aplicação foi construída num único ficheiro HTML. O CSS, responsável pelo
 
 As funcionalidades integradas são:
 
-- **Quiz multi-tema:** apresenta uma ronda de dez perguntas, baralha perguntas e opções, contabiliza pontos, respostas certas e séries, e dá feedback.
-- **Gerador de palavras-passe:** permite gerar uma palavra-passe aleatória com opções de comprimento e caracteres, ou uma frase-passe; inclui botão para copiar e um indicador visual de força.
-- **Organizador de equipas:** distribui os nomes inseridos por duas a quatro equipas e atribui nomes, lemas e cargos conforme a área selecionada.
+ **Quiz multi-tema:** apresenta uma ronda de dez perguntas, baralha perguntas e opções, contabiliza pontos, respostas certas e séries, e dá feedback.
+ **Gerador de palavras-passe:** permite gerar uma palavra-passe aleatória com opções de comprimento e caracteres, ou uma frase-passe; inclui botão para copiar e um indicador visual de força.
+ **Organizador de equipas:** distribui os nomes inseridos por duas a quatro equipas e atribui nomes, lemas e cargos conforme a área selecionada.
 
 O quiz foi inspirado num trabalho realizado em aula. Para o widget de palavras-passe foi consultado o site da 1Password, e para o organizador foi usada como referência a ideia de um gerador de equipas. As funcionalidades e conteúdos foram reunidos e adaptados ao dashboard.
 
@@ -33,11 +33,11 @@ Os exemplos abaixo descrevem pedidos adequados às tarefas deste projeto. São r
 
 ### 3.1 Prompt para conversão Web/HTML
 
-> Converte a proposta do meu dashboard escolar numa página HTML5 funcional, com CSS integrados. Organiza a página em secções claras e garante que os controlos são interativos e que o layout se adapta a ecrãs diferentes.
+ Converte a proposta do meu dashboard escolar numa página HTML5 funcional, com CSS integrados. Organiza a página em secções claras e garante que os controlos são interativos e que o layout se adapta a ecrãs diferentes.
 
 ### 3.2 Prompt para ampliação de funcionalidades
 
-> Amplia o dashboard com três ferramentas: um quiz de dez perguntas com pontuação e feedback, um gerador de palavras-passe com opções personalizáveis e um gerador que distribui participantes por equipas de acordo com o curso. Mantém as funcionalidades integradas na página e apresenta mensagens claras ao utilizador.
+Amplia o dashboard com três ferramentas: um quiz de dez perguntas com pontuação e feedback, um gerador de palavras-passe com opções personalizáveis e um gerador que distribui participantes por equipas de acordo com o curso. Mantém as funcionalidades integradas na página e apresenta mensagens claras ao utilizador.
 
 ### 3.3 Dificuldades e erros corrigidos com IA
 
@@ -50,9 +50,8 @@ Um pedido de design adequado a registar seria:
 > Organiza o dashboard em cartões separados, melhora a leitura com espaçamento consistente e bom contraste, usa uma paleta azul e verde, e torna os botões e controlos fáceis de identificar. Mantém o layout adaptável a telemóveis.
 
 ## 4. Estrutura de ficheiros do repositório
-
-- [`index.html`](./index.html) — página principal; contém HTML, CSS.
-- `README.md` — relatório e descrição do projeto.
+ [`index.html`](./index.html) — página principal; contém HTML, CSS.
+ `README.md` — relatório e descrição do projeto.
 
 Não existem, neste repositório, ficheiros separados `app.py` ou `style.css`, nem uma pasta de assets. Para experimentar a aplicação localmente, abre o ficheiro `index.html` num navegador.
 
